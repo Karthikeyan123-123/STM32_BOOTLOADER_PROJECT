@@ -19,6 +19,6 @@ void jump_to_app(void)
     __set_MSP(appStack);
 
     // Jump
-    void (*app_entry)(void) = (void*)appReset;
+    void (*app_entry)(void) = (void*)(appReset | 1);
     app_entry();
 }
