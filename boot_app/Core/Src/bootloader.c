@@ -17,7 +17,7 @@ void jump_to_app(void)
 
     // Set MSP
     __set_MSP(appStack);
-
+    SCB->VTOR = APP_ADDRESS;
     // Jump
     void (*app_entry)(void) = (void*)(appReset | 1);
     app_entry();
